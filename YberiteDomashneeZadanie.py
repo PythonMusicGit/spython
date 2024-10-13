@@ -9,27 +9,22 @@ class QuizApp(QWidget):
         self.setWindowTitle('YouTube Quiz')
         self.setGeometry(100, 100, 300, 200)
 
-        # Питання
         question = QLabel('В якому році канал отримав "золоту кнопку" від YouTube?')
 
-        # Варіанти відповідей
         self.radio1 = QRadioButton('2005')
         self.radio2 = QRadioButton('2010')
         self.radio3 = QRadioButton('2015')
         self.radio4 = QRadioButton('2020')
 
-        # Група для радіо-кнопок
         self.group = QButtonGroup()
         self.group.addButton(self.radio1)
         self.group.addButton(self.radio2)
         self.group.addButton(self.radio3)
         self.group.addButton(self.radio4)
 
-        # Кнопка підтвердження
         submit_btn = QPushButton('OK')
         submit_btn.clicked.connect(self.check_answer)
 
-        # Layout
         layout = QVBoxLayout()
         layout.addWidget(question)
         layout.addWidget(self.radio1)
@@ -45,8 +40,7 @@ class QuizApp(QWidget):
         else:
             QMessageBox.information(self, 'Result', 'Hi, в 2015 році. Ви виграли фірмовий плакат.')
 
-# Запуск програми
-app = QApplication([])  # Замість sys.argv просто порожній список
+app = QApplication([]) 
 window = QuizApp()
 window.show()
 app.exec_()
